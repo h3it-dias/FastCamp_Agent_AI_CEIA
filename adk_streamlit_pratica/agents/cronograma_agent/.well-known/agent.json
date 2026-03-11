@@ -1,0 +1,4 @@
+{
+    "name": "cronograma_agent",
+    "description": "Agente responsável por criar um cronograma de estudos baseado nos tópicos e no tempo livre."
+}
