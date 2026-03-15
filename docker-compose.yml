@@ -1,0 +1,28 @@
+services:
+
+  waha:
+    image: devlikeapro/waha
+    container_name: waha
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./sessions:/app/sessions
+    restart: always
+    networks:
+      - n8n-network
+
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+    restart: always
+    networks:
+      - n8n-network
+
+networks:
+  n8n-network:
+    driver: bridge
+  
