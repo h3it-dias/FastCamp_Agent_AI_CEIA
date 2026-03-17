@@ -7,7 +7,7 @@ from google.genai import types
 orquestrador_agent = Agent(
     name="orquestrador_agent",
     model=LiteLlm("mistral/mistral-medium-latest"),
-    ddescription="Coordena o planejamento de estudos chamando agentes responsáveis por tópicos, cronograma e exercícios.",
+    description="Coordena o planejamento de estudos chamando agentes responsáveis por tópicos, cronograma e exercícios.",
     instruction=
         "Você é o agente orquestrador responsável por planejar os estudos do usuário. "
         "Com base no assunto, prazo em dias e horas disponíveis por dia, você deve chamar "
