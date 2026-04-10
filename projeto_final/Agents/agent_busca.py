@@ -40,7 +40,7 @@ async def buscar_informacoes(query: str) -> dict():
 
 agent_busca = Agent(
     name="agent_busca",
-    model="gemini/gemini-1.5-pro",
+    model=LiteLlm("mistral/mistral-medium-latest"),
     description="Busca informações médicas no banco vetorial.",
     instruction=(
         "Você DEVE usar a ferramenta buscar_informacoes. "

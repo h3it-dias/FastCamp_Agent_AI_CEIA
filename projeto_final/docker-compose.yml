@@ -1,0 +1,37 @@
+services:
+
+  waha:
+    image: devlikeapro/waha
+    container_name: waha
+    ports:
+      - "3000:3000"
+    environment:
+      - WAHA_API_KEY=senha123
+    volumes:
+      - waha_sessions:/app/sessions
+    restart: always
+    networks:
+      - tivs-network
+
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    user: root 
+    ports:
+      - "5678:5678"
+    environment:
+      - WEBHOOK_URL=http://localhost:5678
+      - N8N_USER_FOLDER=/root 
+    volumes:
+      - n8n_data:/root/.n8n 
+    restart: always
+    networks:
+      - tivs-network
+
+volumes:
+  n8n_data:
+  waha_sessions:
+
+networks:
+  tivs-network:
+    driver: bridge

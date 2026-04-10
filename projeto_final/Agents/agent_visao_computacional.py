@@ -7,7 +7,7 @@ from google.adk.models.lite_llm import LiteLlm
 
 agent_visao_computacional = Agent(
     name="agent_visao_computacional",
-    model=LiteLlm("mistral/pixtral-12b-2409"),
+    model=LiteLlm("mistral/mistral-medium-latest"),
     description="Agente especializado em interpretar imagens médicas de pele, picadas e manchas.",
     instruction="""
     Sua tarefa é analisar rigorosamente a imagem fornecida pelo usuário.

@@ -1,6 +1,5 @@
 __pycache__
 .env
 venv
-docker-compose.yml
 requirements.txt
 n8n_data
