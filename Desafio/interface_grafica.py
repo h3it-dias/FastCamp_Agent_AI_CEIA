@@ -3,21 +3,25 @@ import asyncio
 import nest_asyncio
 from agents import execute, criar_runner
 
+# necessário para rodar asyncio.run dentro do loop de eventos do Streamlit
 nest_asyncio.apply()
 
 st.set_page_config(page_title="Assistente Médico", layout="centered")
 st.title("Assistente Médico Inteligente")
 
+# runner e histórico ficam no session_state para persistir entre reruns do Streamlit
 if "runner" not in st.session_state:
     st.session_state.runner = criar_runner()
 
 if "mensagens" not in st.session_state:
     st.session_state.mensagens = []
 
+# reexibe o histórico de mensagens a cada rerun da página
 for msg in st.session_state.mensagens:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
 
+# ao receber uma nova mensagem, chama o orquestrador e mostra a resposta
 if prompt := st.chat_input("Descreva seus sintomas..."):
     st.session_state.mensagens.append({"role": "user", "content": prompt})
     with st.chat_message("user"):

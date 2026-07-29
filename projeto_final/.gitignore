@@ -3,3 +3,4 @@ __pycache__
 venv
 requirements.txt
 n8n_data
+CLAUDE.md
