@@ -7,3 +7,4 @@ __pycache__/
 sessions/
 n8n_data/
 *.log
+CLAUDE.md
